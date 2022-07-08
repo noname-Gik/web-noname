@@ -1,0 +1,7 @@
+{% block content %}
+    {% for i in photofilesmain %}
+        <img src="{{ i.file.url }}" class="img-thumbnail mx-auto d-block" alt="..." width="300">
+    {% endfor %}
+    <p>add advice or any text</p>
+    <p>demoversion</p>
+{% endblock %}

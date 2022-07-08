@@ -1,0 +1,6 @@
+{% block content %}
+    {% for i in buttonlist %}
+        <a value="{{ i.id }}" href="{{ i.link }}" style="text-transform: uppercase;"
+           class="btn btn-primary btn-lg btn-block">{{ i.name }}</a>
+    {% endfor %}
+{% endblock %}

@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,6 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webmain.apps.WebmainConfig',
+    'rest_framework',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-rus'
 
 TIME_ZONE = 'UTC'
 
@@ -105,3 +108,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATA_DIR = os.path.dirname(os.path.dirname(__file__))
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(DATA_DIR, 'files', 'media')
+STATIC_ROOT = os.path.join(DATA_DIR, 'files', 'static')
+
+LOGIN_URL = "/admin/"
