@@ -1,0 +1,16 @@
+{# Добавление новых советов 1:1 в webmain/securitycontainPR/containerADV/... #}
+{# Главная вкладка подсказок #}
+{% for i in mainticket %}
+    <div class="tab-pane fade show active" id="{{ i.navzone }}" role="tabpanel"
+         aria-labelledby="{{ i.navzone }}-tab">awaiting of containing (all file-links)
+    </div>
+{% endfor %}
+{# Второстепенные вкладки подсказок - для них используется функция в models#}
+{% if secondaryticket %}
+    <div class="tab-pane fade" id="{{ secondaryticket.0 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.0 }}-tab">{% include 'webmain/securitycontainPR/containerADV/htmltable.html' %}
+    </div>
+    <div class="tab-pane fade" id="{{ secondaryticket.1 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.1 }}-tab">{% include 'webmain/securitycontainPR/containerADV/htmlselectmulti.html' %}
+    </div>
+{% endif %}

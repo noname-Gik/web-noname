@@ -1,7 +1,9 @@
-{% block content %}
-    {% for i in photofilesmain %}
-        <img src="{{ i.file.url }}" class="img-thumbnail mx-auto d-block" alt="..." width="300">
-    {% endfor %}
-    <p>add advice or any text</p>
-    <p>demoversion</p>
-{% endblock %}
+{% for i in photofilesmain %}
+    <img src="{{ i.file.url }}" class="img-thumbnail mx-auto d-block" alt="..." width="250">
+{% endfor %}
+
+<div class="card mt-1 mb-1">
+    {% if advicelist %}
+        <div class="card-body text-center">{{ advicelist.0 }}</div>
+    {% endif %}
+</div>

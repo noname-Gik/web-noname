@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="card mt-1 mb-1">
+        {% if advicelist %}
+            <div class="card-body text-center">{{ advicelist.1 }}</div>
+        {% endif %}
+    </div>
+    <nav>
+        {# Заполнение новых подсказок происходит через database #}
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            {% for i in mainticket %}
+                <a class="nav-link active" id="{{ i.navzone }}-tab" data-toggle="tab" href="#{{ i.navzone }}" role="tab"
+                   aria-controls="{{ i.navzone }}" aria-selected="true">{{ i.name }}</a>
+            {% endfor %}
+            {% for i in secondaryticket %}
+                <a class="nav-link" id="{{ i.navzone }}-tab" data-toggle="tab" href="#{{ i.navzone }}" role="tab"
+                   aria-controls="{{ i.navzone }}" aria-selected="false">{{ i.name }}</a>
+            {% endfor %}
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        {# Добавление новых советов 1:1 в webmain/securitycontainPR/containerADV/... #}
+        {% include 'webmain/content/htmlnavcontent.html' %}
+    </div>
+{% endblock %}

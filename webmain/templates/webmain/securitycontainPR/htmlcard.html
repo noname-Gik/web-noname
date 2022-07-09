@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="card m-auto mt-3" style="max-width: 60rem;">
+    {% include 'form_container.html' %}
+</div>
+<div class="card-body m-auto" style="max-width: 60rem;">
+    <a href="{% url 'advice_home' %}" class="btn btn-primary btn-lg btn-block" style="text-transform: uppercase;">good advice</a>
+</div>
+{% endblock %}

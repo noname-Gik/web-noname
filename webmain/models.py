@@ -15,6 +15,32 @@ class ButtonMode(models.Model):
         return self.name
 
 
+# Название совета
+class AdviceMode(models.Model):
+    class Meta:
+        ordering = ['id', ]
+        verbose_name = 'Совет'
+        verbose_name_plural = 'Совет'
+
+    name = models.CharField('Название', max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+# Название совета
+class TicketMode(models.Model):
+    class Meta:
+        ordering = ['id', ]
+        verbose_name = 'Подсказка'
+        verbose_name_plural = 'Подсказка'
+
+    name = models.CharField('Название', max_length=100, null=True, blank=True)
+    navzone = models.CharField('Содержание', max_length=10, null=True, blank=True)
+
+    def __str__(self):
+        return self.navzone
+
+
 class PhotoFile(models.Model):
     class Meta:
         ordering = ['id', ]
