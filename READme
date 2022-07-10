@@ -1,2 +1,7 @@
 way to create table and api root:
     models-admin-serializer-api-urls-views
+
+совет #1 - добавить простой пример добавление текста-файла
+совет #2 - добавить поиск-таблица-пагинация
+совет #3 - добавить select и select2
+совет #n - n/a

@@ -26,6 +26,6 @@ class TicketModeAdmin(ImportExportModelAdmin):
 
 @admin.register(PhotoFile)
 class PhotoFileAdmin(ImportExportModelAdmin):
-    list_display = ['id', 'file', ]
-    list_display_links = ['id', 'file', ]
-    search_fields = ['id', ]
+    list_display = ['id', 'file']
+    list_display_links = ['id', 'file']
+    search_fields = ['id']

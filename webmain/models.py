@@ -27,7 +27,7 @@ class AdviceMode(models.Model):
     def __str__(self):
         return self.name
 
-# Название совета
+# Название вкладки
 class TicketMode(models.Model):
     class Meta:
         ordering = ['id', ]
