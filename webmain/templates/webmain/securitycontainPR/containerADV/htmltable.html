@@ -1,39 +1,58 @@
 {% block content %}
-    {# Требуется реализация #}
-    <h3>Поиск по...</h3>
-    <div class="mb-3">
-        <input value="" name="" class="form-control" type="text">
-    </div>
-    <table class="table table-hover">
-        {# Заголовки - колонки #}
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Организация</th>
-            <th scope="col">Роль</th>
-            <th scope="col">Пользователь</th>
-        </tr>
-        </thead>
-        {# Строки #}
-        <tbody>
-        {% for i in datalist %}
+    {# Добавить "Поиск по организация-роль-пользователь" #}
+    <form action="">
+        <h3>Поиск по...</h3>
+        <div class="mb-3">
+            <input value="{{ sett_search.search_name }}" name="search_name" class="form-control" type="text">
+        </div>
+        <table class="table table-hover">
+            {# Заголовки - колонки #}
+            <thead>
             <tr>
-                <td>{{ i.id }}</td>
-                <td>{{ i.organizations }}</td>
-                <td>{{ i.roles }}</td>
-                <td>{{ i.users }}</td>
+                <th scope="col">ID</th>
+                <th scope="col">Организация</th>
+                <th scope="col">Роль</th>
+                <th scope="col">Пользователь</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {# Требуется реализация #}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#"><<</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">>></a></li>
-        </ul>
-    </nav>
+            </thead>
+            {# Строки #}
+            <tbody>
+            {% for i in datausers %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.organizations }}</td>
+                    <td>{{ i.roles }}</td>
+                    <td>{{ i.users }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {# Требуется реализация #}
+        {% if datausers.has_other_pages %}
+            <ul class="pagination">
+                {% if datausers.has_previous %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ datausers.previous_page_number }}">&laquo;</a>
+                    </li>
+                {% else %}
+                    <li class="disabled page-item"><span class="page-link">&laquo;</span></li>
+                {% endif %}
+                {% for i in datausers.paginator.page_range %}
+                    {% if datausers.number == i %}
+                        <li class="active page-item"><span class="page-link">{{ i }} <span
+                                class="sr-only">(current)</span></span>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if datausers.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ datausers.next_page_number }}">&raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="disabled page-item"><span class="page-link">&raquo;</span></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </form>
 {% endblock %}

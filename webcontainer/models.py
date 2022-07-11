@@ -55,4 +55,7 @@ class ConnectionTableMode(models.Model):
     users = models.ForeignKey(UserTableMode, verbose_name='Пользователь', on_delete=models.CASCADE, null=True,
                               blank=True)
 
+    def __str__(self):
+        return f"{self.users.firstname} {self.users.mainname} {self.users.lastname}"
+
 
