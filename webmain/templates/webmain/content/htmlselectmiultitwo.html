@@ -1,0 +1,26 @@
+{# Множество организаций - множество ролей #}
+<form class="form-message container card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <label for="">Организация</label>
+                <select class="organization-role-multiple" name="organizations" id="idmorganization"
+                        multiple="multiple" style="width: 100%" required>
+                    <option value=""></option>
+                    {% for i in organizations %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="">Роль пользователя</label>
+                <select class="organization-role-multiple" name="roles" id="idmrole" multiple="multiple"
+                        style="width: 100%" required>
+                    {% for i in roles %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+</form>

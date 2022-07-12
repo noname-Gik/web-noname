@@ -4,33 +4,33 @@ from webcontainer.models import OrganizationTableMode, RoleTableMode, UserTableM
 
 
 def get_organization(request):
-    datalist = OrganizationTableMode.objects.filter()
+    organizations = OrganizationTableMode.objects.filter()
     result = []
-    for i in datalist:
+    for i in organizations:
         result.append({
             'id': i.id,
-            'organizations': i.name,
+            'name': i.name,
         })
     return JsonResponse({'result': result})
 
 
 def get_roles(request):
-    datalist = RoleTableMode.objects.filter()
+    roles = RoleTableMode.objects.filter()
     result = []
-    for i in datalist:
+    for i in roles:
         result.append({
             'id': i.id,
-            'roles': i.name,
+            'name': i.name,
         })
     return JsonResponse({'result': result})
 
 
 def get_users(request):
-    datalist = UserTableMode.objects.filter()
+    users = UserTableMode.objects.filter()
     result = []
-    for i in datalist:
+    for i in users:
         result.append({
             'id': i.id,
-            'users': f'{i.firstname} {i.mainname} {i.lastname}',
+            'fio': f'{i.firstname} {i.mainname} {i.lastname}',
         })
     return JsonResponse({'result': result})

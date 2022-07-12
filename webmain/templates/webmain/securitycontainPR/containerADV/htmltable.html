@@ -1,6 +1,6 @@
 {% block content %}
     {# Добавить "Поиск по организация-роль-пользователь" #}
-    <form action="">
+    <form action="" class="container">
         <h3>Поиск по...</h3>
         <div class="mb-3">
             <input value="{{ sett_search.search_name }}" name="search_name" class="form-control" type="text">
@@ -27,9 +27,9 @@
             {% endfor %}
             </tbody>
         </table>
-        {# Требуется реализация #}
+        {# Пагинация #}
         {% if datausers.has_other_pages %}
-            <ul class="pagination">
+            <ul class="pagination justify-content-center">
                 {% if datausers.has_previous %}
                     <li class="page-item"><a class="page-link"
                                              href="?page={{ datausers.previous_page_number }}">&laquo;</a>

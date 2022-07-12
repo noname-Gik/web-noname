@@ -8,7 +8,7 @@
 {# Второстепенные вкладки подсказок - для них используется функция в models#}
 {% if secondaryticket %}
     <div class="tab-pane fade" id="{{ secondaryticket.0 }}" role="tabpanel"
-         aria-labelledby="{{ secondaryticket.0 }}-tab">awaiting of containing (all file-links)
+         aria-labelledby="{{ secondaryticket.0 }}-tab">{% include 'webmain/securitycontainPR/containerADV/htmlselectfilesend.html' %}
     </div>
     <div class="tab-pane fade" id="{{ secondaryticket.1 }}" role="tabpanel"
          aria-labelledby="{{ secondaryticket.1 }}-tab">{% include 'webmain/securitycontainPR/containerADV/htmlselectmulti.html' %}

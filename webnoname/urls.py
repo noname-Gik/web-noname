@@ -32,9 +32,9 @@ urlpatterns = [
                   # отображение файлов на сайте
                   path('', PhotoFile, name="PhotoFile"),
                   # вывод данных через api
-                  path('api/get_organization', get_organization),
-                  path('api/get_roles', get_roles),
-                  path('api/get_users', get_users),
+                  path('advice_zone/api/get_organization', get_organization),
+                  path('advice_zone/api/get_roles', get_roles),
+                  path('advice_zone/api/get_users', get_users),
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
