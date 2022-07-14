@@ -14,8 +14,19 @@ def get_organization(request):
     return JsonResponse({'result': result})
 
 
-def get_roles(request):
+def get_roles_all(request):
     roles = RoleTableMode.objects.filter()
+    result = []
+    for i in roles:
+        result.append({
+            'id': i.id,
+            'name': i.name,
+        })
+    return JsonResponse({'result': result})
+
+
+def get_roles(request, ids):
+    roles = RoleTableMode.objects.filter(connectiontablemode__organizations_id=ids).distinct()
     result = []
     for i in roles:
         result.append({
