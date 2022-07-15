@@ -10,9 +10,6 @@ class MessageMode(models.Model):
 
     textsend = models.CharField('Содержание', max_length=500, null=True, blank=True)
 
-    def __str__(self):
-        return self.textsend
-
 
 # Файл
 class PhotoFileMode(models.Model):

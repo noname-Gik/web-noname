@@ -1,18 +1,21 @@
 {% block content %}
-    <form class="my-1 container card" method="POST" action="{% url 'send_message_form' %}" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'send_message_form' %}" class="form-message my-1 container card"
+          enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <label for="txt_message">Текст сообщения</label>
-            <textarea type="text" class="form-control " rows="3" name="message" id="txt_message" required></textarea>
+            <textarea type="text" class="form-control " rows="3" name="textsend" id="txt_message" required></textarea>
         </div>
         <div class="custom-file"><input type="file" name="file"></div>
         <button type="submit" id="sendmessage" class="btn btn-primary btn-lg btn-block my-1 btn-message">
             Отправить сообщение
         </button>
     </form>
+
     <div class="card container">
         {% if advicelist %}
             <div class="card-body text-center">{{ advicelist.2 }}</div>
         {% endif %}
     </div>
+
 {% endblock %}
