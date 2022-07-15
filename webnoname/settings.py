@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webmain.apps.WebmainConfig',
     'webcontainer.apps.WebcontainerConfig',
+    'webmessage.apps.WebmessageConfig',
     'rest_framework',
     'import_export',
 ]

@@ -24,7 +24,9 @@ def advice_home(request):
     datalist = ConnectionTableMode.objects.filter()
     if request.GET.get('search_name'):
         sett_search['search_name'] = request.GET.get('search_name')
-        datalist = datalist.filter(users__firstname__icontains=request.GET.get('search_name'), )
+        datalist = datalist.filter(Q(organizations__name__icontains=request.GET.get('search_name')) |
+                                   Q(roles__name__icontains=request.GET.get('search_name')) |
+                                   Q(users__firstname__icontains=request.GET.get('search_name')))
     else:
         # Используется ограничение вывода из database
         datalist = datalist[0:50]

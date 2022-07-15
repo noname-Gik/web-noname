@@ -10,6 +10,8 @@ from webcontainer.views import get_organization, get_roles, get_users, get_roles
 from webmain.api import ButtonModeViewSet, PhotoFileViewSet, AdviceModeViewSet, TicketModeViewSet
 from webmain.models import PhotoFile
 from webmain.views import home, advice_home
+from webmessage.api import MessageModeViewSet, PhotoFileModeViewSet
+from webmessage.views import send_message_form
 
 router = DefaultRouter()
 # Регистры разных компонентов
@@ -22,6 +24,9 @@ router.register(r'organizations', OrganizationTableModeViewSet),
 router.register(r'roles', RoleTableModeViewSet),
 router.register(r'users', UserTableModeViewSet),
 router.register(r'connections', ConnectionTableModeViewSet),
+
+router.register(r'message', MessageModeViewSet),
+router.register(r'somefile', PhotoFileModeViewSet),
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -36,6 +41,8 @@ urlpatterns = [
                   path('advice_zone/api/get_roles_all', get_roles_all),
                   path('advice_zone/api/get_roles/<int:ids>', get_roles),
                   path('advice_zone/api/get_users', get_users),
+                  # отправка сообщений
+                  path('messages/', send_message_form, name="send_message_form"),
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

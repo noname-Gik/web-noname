@@ -1,6 +1,5 @@
 {% block content %}
-    {#<form method="POST" action="{% url 'send_message_form' %}" class="form-message" enctype="multipart/form-data">#}
-    <form class="form-message mt-1 card container">
+    <form class="my-1 container card" method="POST" action="{% url 'send_message_form' %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <label for="txt_message">Текст сообщения</label>
@@ -11,7 +10,7 @@
             Отправить сообщение
         </button>
     </form>
-    <div class="card mt-1 container">
+    <div class="card container">
         {% if advicelist %}
             <div class="card-body text-center">{{ advicelist.2 }}</div>
         {% endif %}
