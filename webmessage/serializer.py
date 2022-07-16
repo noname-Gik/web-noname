@@ -1,15 +1,9 @@
 from rest_framework.serializers import ModelSerializer
 
-from webmessage.models import MessageMode, PhotoFileMode
+from webmessage.models import FileMessageMode
 
 
-class MessageModeSerializer(ModelSerializer):
+class FileMessageModeSerializer(ModelSerializer):
     class Meta:
-        model = MessageMode
-        fields = '__all__'
-
-
-class PhotoFileModeSerializer(ModelSerializer):
-    class Meta:
-        model = PhotoFileMode
+        model = FileMessageMode
         fields = '__all__'

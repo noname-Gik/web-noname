@@ -38,15 +38,18 @@ $(document).ready(function () {
         })
     });
 });
-// Отправка сообщения в database
+// Отправка сообщения с файлом в database
 $(".form-message").submit(function (e) {
     e.preventDefault();
+    var formData = new FormData(this);
     $.ajax({
+        processData: false,
+        contentType: false,
         method: 'POST',
-        data: $(this).serialize(), // получаяем данные формы
+        data: formData, // получаем данные формы
         url: this.action,
         success: function (response) {
-            alert('Поздравляю ваше сообщение отправлено в database');
+            alert('Поздравляю, ваше сообщение отправлено в database');
         },
         error: function (response) {
             alert('Внимание!! Что-то пошло не так');

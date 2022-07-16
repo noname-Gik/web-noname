@@ -1,18 +1,12 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from webmessage.models import MessageMode, PhotoFileMode
+from webmessage.models import FileMessageMode
 
 
-@admin.register(MessageMode)
-class MessageModeAdmin(ImportExportModelAdmin):
-    list_display = ['id', 'textsend', ]
-    list_display_links = ['id', 'textsend', ]
+@admin.register(FileMessageMode)
+class FileMessageModeAdmin(ImportExportModelAdmin):
+    list_display = ['id', 'textsend', 'docfile' ]
+    list_display_links = ['id', 'textsend', 'docfile' ]
     search_fields = ['textsend', ]
 
-
-@admin.register(PhotoFileMode)
-class PhotoFileModeAdmin(ImportExportModelAdmin):
-    list_display = ['id', 'file']
-    list_display_links = ['id', 'file']
-    search_fields = ['id']

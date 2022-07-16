@@ -1,21 +1,15 @@
 from django.db import models
 
 
-# Сообщение
-class MessageMode(models.Model):
+# Сообщение-Файл
+class FileMessageMode(models.Model):
     class Meta:
         ordering = ['id', ]
         verbose_name = 'Сообщение'
         verbose_name_plural = 'Сообщение'
 
-    textsend = models.CharField('Содержание', max_length=500, null=True, blank=True)
+    textsend = models.CharField('Содержание', max_length=100, null=True, blank=True)
+    docfile = models.FileField('Фото-файл', upload_to="", null=True, blank=True)
 
 
-# Файл
-class PhotoFileMode(models.Model):
-    class Meta:
-        ordering = ['id', ]
-        verbose_name = 'Фото-файл'
-        verbose_name_plural = 'Фото-файл'
 
-    file = models.FileField('Фото-файл', upload_to="media")
