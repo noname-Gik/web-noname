@@ -6,9 +6,11 @@ from rest_framework.views import APIView
 from webmessage.models import FileMessageMode
 from rest_framework.response import Response
 
-from webmessage.serializer import FileMessageModeSerializer, FileMessageModeSerializer
+from webmessage.serializer import FileMessageModeSerializer
 
 
+# Второстепенная функция
+# handle_uploaded_file(request.FILES['docfile'])
 def handle_uploaded_file(f):
     with open('files/media/' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
@@ -25,8 +27,6 @@ class MessageList(APIView):
     def post(self, request, format=None):
         serializer = FileMessageModeSerializer(data=request.data)
         if serializer.is_valid():
-            # handle_uploaded_file(request.FILES['docfile'])
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-

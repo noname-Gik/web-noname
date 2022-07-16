@@ -24,7 +24,7 @@ router.register(r'organizations', OrganizationTableModeViewSet),
 router.register(r'roles', RoleTableModeViewSet),
 router.register(r'users', UserTableModeViewSet),
 router.register(r'connections', ConnectionTableModeViewSet),
-
+# Регистр работы с данными
 router.register(r'filemessages', FileMessageModeViewSet),
 
 

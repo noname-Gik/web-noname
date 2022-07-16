@@ -41,7 +41,7 @@ $(document).ready(function () {
 // Отправка сообщения с файлом в database
 $(".form-message").submit(function (e) {
     e.preventDefault();
-    var formData = new FormData(this);
+    let formData = new FormData(this);
     $.ajax({
         processData: false,
         contentType: false,
