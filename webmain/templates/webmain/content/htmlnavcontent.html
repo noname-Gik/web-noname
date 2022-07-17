@@ -7,13 +7,40 @@
 {% endfor %}
 {# Второстепенные вкладки подсказок - для них используется функция в models#}
 {% if secondaryticket %}
+    {# Совет #2 #}
     <div class="tab-pane fade" id="{{ secondaryticket.0 }}" role="tabpanel"
          aria-labelledby="{{ secondaryticket.0 }}-tab">{% include 'webmain/securitycontainPR/containerADV/htmlselectfilesend.html' %}
     </div>
+    {# Совет #3 #}
     <div class="tab-pane fade" id="{{ secondaryticket.1 }}" role="tabpanel"
          aria-labelledby="{{ secondaryticket.1 }}-tab">{% include 'webmain/securitycontainPR/containerADV/htmlselectmulti.html' %}
     </div>
+    {# Совет #4 #}
     <div class="tab-pane fade" id="{{ secondaryticket.2 }}" role="tabpanel"
-         aria-labelledby="{{ secondaryticket.2 }}-tab">awaiting of new tricks
+         aria-labelledby="{{ secondaryticket.2 }}-tab">awaiting of new tricks #4
+    </div>
+    {# Совет #5 #}
+    <div class="tab-pane fade" id="{{ secondaryticket.3 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.3 }}-tab">awaiting of new tricks #5
+    </div>
+    {# Совет #6 #}
+    <div class="tab-pane fade" id="{{ secondaryticket.4 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.4 }}-tab">awaiting of new tricks #6
+    </div>
+    {# Совет #7 #}
+    <div class="tab-pane fade" id="{{ secondaryticket.5 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.5 }}-tab">awaiting of new tricks #7
+    </div>
+    {# Совет #8 #}
+    <div class="tab-pane fade" id="{{ secondaryticket.6 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.6 }}-tab">awaiting of new tricks #8
+    </div>
+    {# Совет #9 #}
+    <div class="tab-pane fade" id="{{ secondaryticket.7 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.7 }}-tab">awaiting of new tricks #9
+    </div>
+    {# Совет #10 #}
+    <div class="tab-pane fade" id="{{ secondaryticket.8 }}" role="tabpanel"
+         aria-labelledby="{{ secondaryticket.8 }}-tab">awaiting of new tricks #10
     </div>
 {% endif %}

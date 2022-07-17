@@ -1,5 +1,12 @@
+good trick for select2 multiple:
+    ✅ css: .select2-container--default .select2-results__option[aria-disabled=true] { display: none;}
 way to create table and api root:
     ✅ models-admin-serializer-api-urls-views
+way to create apiview post-method:
+    ✅ python: models-admin-serializer-api-views(class ...(apiview) def post())-urls
+    ✅ html: <form method="POST" action="{% url 'name' %}" enctype="multipart/form-data">{% csrf_token %}
+    ✅ js: function (e) {e.preventDefault(); let formData = new FormData(this); $.ajax({...})}
 
 making advice's for other website:
-    ⌚ add advice #4-10
+    ⌚ awaiting advice #4
+    ⌚ add advice #5-10

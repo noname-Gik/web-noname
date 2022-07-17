@@ -26,7 +26,9 @@ def advice_home(request):
         sett_search['search_name'] = request.GET.get('search_name')
         datalist = datalist.filter(Q(organizations__name__icontains=request.GET.get('search_name')) |
                                    Q(roles__name__icontains=request.GET.get('search_name')) |
-                                   Q(users__firstname__icontains=request.GET.get('search_name')))
+                                   Q(users__firstname__icontains=request.GET.get('search_name')) |
+                                   Q(users__mainname__icontains=request.GET.get('search_name')) |
+                                   Q(users__lastname__icontains=request.GET.get('search_name')))
     else:
         # Используется ограничение вывода из database
         datalist = datalist[0:50]
@@ -42,4 +44,3 @@ def advice_home(request):
     return render(request, 'webmain/securitycontainPR/htmladvice.html',
                   {'mainticket': mainticket, 'secondaryticket': secondaryticket, 'advicelist': advicelist,
                    'datausers': datausers, 'sett_search': sett_search, })
-

@@ -5,8 +5,8 @@ from django.db import models
 class FileMessageMode(models.Model):
     class Meta:
         ordering = ['id', ]
-        verbose_name = 'Сообщение'
-        verbose_name_plural = 'Сообщение'
+        verbose_name = 'Сообщения-файлы'
+        verbose_name_plural = 'Сообщения-файлы'
 
     textsend = models.CharField('Содержание', max_length=100, null=True, blank=True)
     docfile = models.FileField('Фото-файл', upload_to="", null=True, blank=True)

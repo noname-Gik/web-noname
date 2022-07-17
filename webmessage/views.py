@@ -17,7 +17,7 @@ def handle_uploaded_file(f):
             destination.write(chunk)
 
 
-class MessageList(APIView):
+class FileMessageList(APIView):
     def get(self, request, format=None):
         snippets = FileMessageMode.objects.all()
         serializer = FileMessageModeSerializer(snippets, many=True)
