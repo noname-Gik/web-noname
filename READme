@@ -8,5 +8,6 @@ way to create apiview post-method:
     ✅ js: function (e) {e.preventDefault(); let formData = new FormData(this); $.ajax({...})}
 
 making advice's for other website:
+    💻 mission: how to create account on website?
     ⌚ awaiting advice #4
     ⌚ add advice #5-10
