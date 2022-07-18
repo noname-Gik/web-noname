@@ -1,3 +1,4 @@
+💻 how to be git gud?
 good trick for select2 multiple:
     ✅ css: .select2-container--default .select2-results__option[aria-disabled=true] { display: none;}
 way to create table and api root:

@@ -7,7 +7,7 @@ from webcomment.models import СommentMode
 from webcomment.serializer import СommentModeSerializer
 
 
-# Работа с api
+# Работа с API
 class CommentsList(APIView):
     def get(self, request, format=None):
         snippets = СommentMode.objects.all()
