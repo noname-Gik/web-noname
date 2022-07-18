@@ -1,0 +1,17 @@
+{% block content %}
+    <div class="card container mt-1">
+        {% if advicelist %}
+            <div class="card-body text-center">{{ advicelist.4 }}</div>
+        {% endif %}
+    </div>
+    {# Форма отправки #}
+    <form method="POST" action="{% url 'post_comment' %}" class="form-message my-1 container card"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="txt_message">Текст сообщения</label>
+            <textarea type="text" class="form-control " rows="3" name="comment" id="txt_comment" required></textarea>
+        </div>
+        {% include 'webmain/content/htmlpostbutton.html' %}
+    </form>
+{% endblock %}

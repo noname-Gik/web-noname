@@ -4,6 +4,8 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
+from webcomment.api import СommentModeViewSet
+from webcomment.views import CommentsList
 from webcontainer.api import OrganizationTableModeViewSet, RoleTableModeViewSet, UserTableModeViewSet, \
     ConnectionTableModeViewSet
 from webcontainer.views import get_organization, get_roles, get_users, get_roles_all
@@ -26,6 +28,7 @@ router.register(r'users', UserTableModeViewSet),
 router.register(r'connections', ConnectionTableModeViewSet),
 # Регистр работы с данными
 router.register(r'filemessages', FileMessageModeViewSet),
+router.register(r'comments', СommentModeViewSet),
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
@@ -42,6 +45,7 @@ urlpatterns = [
                   path('advice_zone/api/get_users', get_users),
                   # отправка сообщений с файлом
                   path('api/filemessages/', FileMessageList.as_view(), name="send_message_form"),
+                  path('api/comments/', CommentsList.as_view(), name="post_comment"),
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

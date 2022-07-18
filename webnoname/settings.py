@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'webmain.apps.WebmainConfig',
     'webcontainer.apps.WebcontainerConfig',
     'webmessage.apps.WebmessageConfig',
+    'webcomment.apps.WebcommentConfig',
     'rest_framework',
     'import_export',
 ]

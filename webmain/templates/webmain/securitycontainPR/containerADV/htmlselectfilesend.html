@@ -7,9 +7,7 @@
             <textarea type="text" class="form-control " rows="3" name="textsend" id="txt_message" required></textarea>
         </div>
         <div class="custom-file"><input type="file" id="js-file" name="docfile"></div>
-        <button type="submit" id="sendmessage" class="btn btn-primary btn-lg btn-block my-1 btn-message">
-            Отправить сообщение
-        </button>
+        {% include 'webmain/content/htmlpostbutton.html' %}
     </form>
     <div class="card container">
         {% if advicelist %}
