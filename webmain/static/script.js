@@ -1,4 +1,10 @@
-// select2-multiple - все disabled отключены для отображения, смотреть css-файл
+// datatable - оптимизация работы с таблицей (плагин)
+$(document).ready(function () {
+    $('#idtableconnection').DataTable({
+        pagingType: 'first_last_numbers',
+    });
+});
+// select2-multiple - все disabled отключены для отображения, смотреть css-файл (плагин)
 $(document).ready(function () {
     $('.organization-role-multiple').select2();
 
@@ -7,6 +13,7 @@ $(document).ready(function () {
 
     let organization_select_m = $('#idmorganization');
     let role_select_m = $('#idmrole');
+
     // вывод списка организаций
     $.get(`api/get_organization`, function (data) {
         data.result.forEach((i) => {
@@ -19,7 +26,6 @@ $(document).ready(function () {
         role_select.empty();
         role_select.append(`<option></option>`);
     });
-
     // выборка организация-роли, отключение disabled в css
     organization_select.change(function () {
         let selectedItem = $(this).val();
@@ -56,3 +62,26 @@ $(".form-message").submit(function (e) {
         }
     });
 });
+// Обновление списка комментариев
+$('.all-com').ready(function () {
+    setInterval(function () {
+        let comment_select = $('#idcom');
+        $.ajax({
+            method: "GET",
+            url: "/api/comments/",
+            success: function (data) {
+                comment_select.empty();
+                $.each(data, function (key, i) {
+                    comment_select.append(
+                        '<div class=\"card container my-1\"><div class=\"card-body text-center\">' + i.comment + '</div></div>'
+                    )
+                })
+            },
+            error: function (data) {
+                console.log("error")
+                console.log(data)
+            }
+        })
+    }, 1000)
+});
+

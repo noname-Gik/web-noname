@@ -1,11 +1,7 @@
 {% block content %}
     {# Поиск по организация-роль-пользователь #}
-    <form action="" class="container">
-        <h3>Поиск по...</h3>
-        <div class="mb-3">
-            <input value="{{ sett_search.search_name }}" name="search_name" class="form-control" type="text">
-        </div>
-        <table class="table table-hover">
+    <form class="container mt-1">
+        <table class="table table-hover" id="idtableconnection">
             {# Заголовки - колонки #}
             <thead>
             <tr>
@@ -16,7 +12,7 @@
             </tr>
             </thead>
             {# Строки #}
-            <tbody>
+            <tbody class="table-connection" id="idconnect">
             {% for i in datausers %}
                 <tr>
                     <td>{{ i.id }}</td>
@@ -28,31 +24,5 @@
             </tbody>
         </table>
         {# Пагинация #}
-        {% if datausers.has_other_pages %}
-            <ul class="pagination justify-content-center">
-                {% if datausers.has_previous %}
-                    <li class="page-item"><a class="page-link"
-                                             href="?page={{ datausers.previous_page_number }}">&laquo;</a>
-                    </li>
-                {% else %}
-                    <li class="disabled page-item"><span class="page-link">&laquo;</span></li>
-                {% endif %}
-                {% for i in datausers.paginator.page_range %}
-                    {% if datausers.number == i %}
-                        <li class="active page-item"><span class="page-link">{{ i }} <span
-                                class="sr-only">(current)</span></span>
-                        </li>
-                    {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                {% if datausers.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{ datausers.next_page_number }}">&raquo;</a>
-                    </li>
-                {% else %}
-                    <li class="disabled page-item"><span class="page-link">&raquo;</span></li>
-                {% endif %}
-            </ul>
-        {% endif %}
     </form>
 {% endblock %}

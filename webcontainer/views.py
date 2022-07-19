@@ -2,7 +2,7 @@ from django.http import JsonResponse
 
 from webcontainer.models import OrganizationTableMode, RoleTableMode, UserTableMode
 
-
+# Используется для статичного объекта
 def get_organization(request):
     organizations = OrganizationTableMode.objects.filter()
     result = []
@@ -13,7 +13,7 @@ def get_organization(request):
         })
     return JsonResponse({'result': result})
 
-
+# Используется для статичного объекта
 def get_roles_all(request):
     roles = RoleTableMode.objects.filter()
     result = []
@@ -24,7 +24,7 @@ def get_roles_all(request):
         })
     return JsonResponse({'result': result})
 
-
+# Используется для статичного объекта
 def get_roles(request, ids):
     roles = RoleTableMode.objects.filter(connectiontablemode__organizations_id=ids).distinct()
     result = []
